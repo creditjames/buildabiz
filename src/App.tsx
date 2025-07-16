@@ -7,13 +7,18 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import PricingPage from './pages/PricingPage';
 import ServicesPage from './pages/ServicesPage';
+// Test imports from FormationPage
+import { useLocation, useNavigate } from 'react-router-dom';
+import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
+import { loadStripe } from '@stripe/stripe-js';
 
 // Simple FormationPage test component
 const SimpleFormationPage = () => {
   return (
     <div style={{ padding: '20px' }}>
-      <h1>Simple Formation Page Test</h1>
-      <p>This is a simplified version to test if the issue is with imports or logic.</p>
+      <h1>FormationPage Imports Test</h1>
+      <p>Testing if the basic imports from FormationPage work.</p>
+      <p>Imports added: useLocation, useNavigate, lucide-react icons, loadStripe</p>
     </div>
   );
 };
@@ -24,8 +29,8 @@ function App() {
       <FormationProvider>
         <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
           <Header />
-          <h1>Test Page - Simple FormationPage Added!</h1>
-          <p>If you can see this, simple FormationPage is working correctly.</p>
+          <h1>Test Page - FormationPage Imports Added!</h1>
+          <p>If you can see this, FormationPage imports are working correctly.</p>
           <p>Current time: {new Date().toLocaleString()}</p>
           <Routes>
             <Route path="/" element={<HomePage />} />
