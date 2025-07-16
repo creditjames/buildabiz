@@ -1,0 +1,68 @@
+/*
+  # Enhance business progress tracking
+
+  1. Changes
+    - Improve progress tracking function
+    - Add status-based progress calculation
+    - Update estimated completion dates
+    
+  2. Security
+    - Maintain existing RLS policies
+    - Only allow authorized updates
+*/
+
+-- Create function to update progress based on status
+CREATE OR REPLACE FUNCTION update_business_progress()
+RETURNS TRIGGER AS $$
+DECLARE
+  total_docs INTEGER := 5;
+  docs_uploaded INTEGER;
+  estimated_days INTEGER;
+  completion_date TIMESTAMP WITH TIME ZONE;
+BEGIN
+  -- Get current uploaded documents count
+  SELECT COUNT(*) INTO docs_uploaded
+  FROM documents
+  WHERE business_id = NEW.id AND status = 'completed';
+
+  -- Set estimated days based on status
+  estimated_days := CASE NEW.status
+    WHEN 'pending' THEN 14
+    WHEN 'processing' THEN 10
+    WHEN 'review' THEN 5
+    WHEN 'filed' THEN 3
+    WHEN 'completed' THEN 0
+    ELSE 14
+  END;
+
+  -- Calculate estimated completion date
+  completion_date := CASE
+    WHEN NEW.status = 'completed' THEN NOW()
+    ELSE NOW() + (estimated_days || ' days')::INTERVAL
+  END;
+
+  -- Update the progress tracking
+  NEW.progress = jsonb_build_object(
+    'current_step', NEW.status,
+    'total_documents', total_docs,
+    'documents_uploaded', docs_uploaded,
+    'estimated_completion', completion_date,
+    'last_updated', NOW()
+  );
+  
+  -- Update timestamp
+  NEW.updated_at = NOW();
+  
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Drop existing trigger if it exists
+DROP TRIGGER IF EXISTS update_business_progress_trigger ON businesses;
+
+-- Create new trigger that fires on status update
+CREATE TRIGGER update_business_progress_trigger
+  BEFORE UPDATE OF status
+  ON businesses
+  FOR EACH ROW
+  EXECUTE FUNCTION update_business_progress();
