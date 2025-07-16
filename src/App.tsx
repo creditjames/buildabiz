@@ -11,14 +11,16 @@ import ServicesPage from './pages/ServicesPage';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import { loadStripe } from '@stripe/stripe-js';
+// Test formation component imports
+import BusinessNameForm from './components/formation/BusinessNameForm';
 
 // Simple FormationPage test component
 const SimpleFormationPage = () => {
   return (
     <div style={{ padding: '20px' }}>
-      <h1>FormationPage Imports Test</h1>
-      <p>Testing if the basic imports from FormationPage work.</p>
-      <p>Imports added: useLocation, useNavigate, lucide-react icons, loadStripe</p>
+      <h1>Formation Components Test</h1>
+      <p>Testing if the formation component imports work.</p>
+      <p>Component added: BusinessNameForm</p>
     </div>
   );
 };
@@ -29,8 +31,8 @@ function App() {
       <FormationProvider>
         <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
           <Header />
-          <h1>Test Page - FormationPage Imports Added!</h1>
-          <p>If you can see this, FormationPage imports are working correctly.</p>
+          <h1>Test Page - BusinessNameForm Added!</h1>
+          <p>If you can see this, BusinessNameForm import is working correctly.</p>
           <p>Current time: {new Date().toLocaleString()}</p>
           <Routes>
             <Route path="/" element={<HomePage />} />
