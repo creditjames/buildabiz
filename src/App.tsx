@@ -14,6 +14,7 @@ import { loadStripe } from '@stripe/stripe-js';
 // Test formation component imports
 import BusinessNameForm from './components/formation/BusinessNameForm';
 import BusinessAddressForm from './components/formation/BusinessAddressForm';
+import RegisteredAgentForm from './components/formation/RegisteredAgentForm';
 
 // Simple FormationPage test component
 const SimpleFormationPage = () => {
@@ -21,7 +22,7 @@ const SimpleFormationPage = () => {
     <div style={{ padding: '20px' }}>
       <h1>Formation Components Test</h1>
       <p>Testing if the formation component imports work.</p>
-      <p>Components added: BusinessNameForm, BusinessAddressForm</p>
+      <p>Components added: BusinessNameForm, BusinessAddressForm, RegisteredAgentForm</p>
     </div>
   );
 };
@@ -32,8 +33,8 @@ function App() {
       <FormationProvider>
         <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
           <Header />
-          <h1>Test Page - BusinessAddressForm Added!</h1>
-          <p>If you can see this, BusinessAddressForm import is working correctly.</p>
+          <h1>Test Page - RegisteredAgentForm Added!</h1>
+          <p>If you can see this, RegisteredAgentForm import is working correctly.</p>
           <p>Current time: {new Date().toLocaleString()}</p>
           <Routes>
             <Route path="/" element={<HomePage />} />
