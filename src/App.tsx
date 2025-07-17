@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { FormationProvider } from './context/FormationContext';
 import Header from './components/layout/Header';
@@ -30,6 +30,8 @@ import ProfileSettings from './pages/ProfileSettings';
 import RefundPolicy from './pages/RefundPolicy';
 import Reviews from './pages/Reviews';
 import TermsOfService from './pages/TermsOfService';
+import AdminDashboard from './pages/AdminDashboard';
+import BillingPage from './pages/BillingPage';
 // Service pages
 import Amendments from './pages/services/Amendments';
 import AnnualReportFiling from './pages/services/AnnualReportFiling';
@@ -88,6 +90,8 @@ function App() {
               <Route path="/refund-policy" element={<RefundPolicy />} />
               <Route path="/reviews" element={<Reviews />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/admin-dashboard" element={<AdminDashboard />} />
+              <Route path="/billing" element={<BillingPage />} />
               {/* Service pages */}
               <Route path="/services/amendments" element={<Amendments />} />
               <Route path="/services/annual-report-filing" element={<AnnualReportFiling />} />
