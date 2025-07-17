@@ -10,25 +10,25 @@ const MegaMenu = () => {
           <h3 className="font-bold text-lg mb-4 text-gray-800">Start Your Business</h3>
           <ul className="space-y-3">
             <li>
-              <Link to="/formation/llc" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/formation" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <Building2 size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>Form an LLC</span>
               </Link>
             </li>
             <li>
-              <Link to="/formation/corporation" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/formation" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <Building2 size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>Form a Corporation</span>
               </Link>
             </li>
             <li>
-              <Link to="/formation/s-corp" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/formation" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <Building2 size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>S Corporation</span>
               </Link>
             </li>
             <li>
-              <Link to="/formation/nonprofit" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/formation" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <Building2 size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>Form a Nonprofit</span>
               </Link>
@@ -52,7 +52,7 @@ const MegaMenu = () => {
               </Link>
             </li>
             <li>
-              <Link to="/services/annual-report" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/services/annual-report-filing" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <FileText size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>Annual Report Filing</span>
               </Link>
@@ -64,7 +64,7 @@ const MegaMenu = () => {
               </Link>
             </li>
             <li>
-              <Link to="/services/certificates" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/services/certificates-of-good-standing" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <FileText size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>Certificates of Good Standing</span>
               </Link>
@@ -82,7 +82,7 @@ const MegaMenu = () => {
           <h3 className="font-bold text-lg mb-4 text-gray-800">Business Essentials</h3>
           <ul className="space-y-3">
             <li>
-              <Link to="/services/ein" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/services/ein-service" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <Briefcase size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>EIN / Tax ID Number</span>
               </Link>
@@ -94,13 +94,13 @@ const MegaMenu = () => {
               </Link>
             </li>
             <li>
-              <Link to="/services/dba" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/services/dba-filing" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <FileSignature size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>DBA Filing</span>
               </Link>
             </li>
             <li>
-              <Link to="/services/trademark" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/services/trademark-registration" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <Shield size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>Trademark Registration</span>
               </Link>
@@ -118,7 +118,7 @@ const MegaMenu = () => {
           <h3 className="font-bold text-lg mb-4 text-gray-800">Resources</h3>
           <ul className="space-y-3">
             <li>
-              <Link to="/compare-entities" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/entity-comparison" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <BookOpen size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>Entity Comparison</span>
               </Link>
@@ -130,19 +130,19 @@ const MegaMenu = () => {
               </Link>
             </li>
             <li>
-              <Link to="/resources/guides" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/business-guides" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <BookOpen size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>Business Guides</span>
               </Link>
             </li>
             <li>
-              <Link to="/resources/blog" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/blog" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <FileText size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>Blog</span>
               </Link>
             </li>
             <li>
-              <Link to="/resources/faq" className="flex items-center text-gray-700 hover:text-orange-500 group">
+              <Link to="/faq" className="flex items-center text-gray-700 hover:text-orange-500 group">
                 <BookOpen size={18} className="mr-2 text-gray-400 group-hover:text-orange-500" />
                 <span>FAQs</span>
               </Link>
