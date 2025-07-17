@@ -44,12 +44,52 @@ import RegisteredAgentService from './pages/services/RegisteredAgentService';
 import TrademarkRegistration from './pages/services/TrademarkRegistration';
 import VirtualAddress from './pages/services/VirtualAddress';
 
-// Simple FormationPage test component
-const SimpleFormationPage = () => {
+// Working FormationPage component
+const WorkingFormationPage = () => {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Simple Formation Page Test</h1>
-      <p>This is a simplified version to test if the issue is with the complex structure.</p>
+    <div className="bg-gray-50 min-h-screen">
+      <div className="container mx-auto px-4 py-16">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 mb-6 text-center">
+            Business Formation
+          </h1>
+          <p className="text-xl text-gray-600 text-center mb-12">
+            Start your business formation process with our step-by-step guide
+          </p>
+          
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              Choose Your Business Type
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-orange-500 transition-colors cursor-pointer">
+                <h3 className="text-xl font-bold text-gray-900">Limited Liability Company</h3>
+                <p className="text-gray-600">Most popular choice for small businesses</p>
+                <div className="text-2xl font-bold text-orange-500">$49</div>
+              </div>
+              
+              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-orange-500 transition-colors cursor-pointer">
+                <h3 className="text-xl font-bold text-gray-900">C-Corporation</h3>
+                <p className="text-gray-600 mb-4">Traditional corporation structure for larger businesses</p>
+                <div className="text-2xl font-bold text-orange-500">$99</div>
+              </div>
+              
+              <div className="border-2 border-gray-200 rounded-lg p-6 hover:border-orange-500 transition-colors cursor-pointer">
+                <h3 className="text-xl font-bold text-gray-900">S-Corporation</h3>
+                <p className="text-gray-600 mb-4">Pass-through taxation with corporate structure</p>
+                <div className="text-2xl font-bold text-orange-500">$149</div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-md font-medium transition-colors">
+                Start Formation Process
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -63,7 +103,7 @@ function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/formation" element={<SimpleFormationPage />} />
+              <Route path="/formation" element={<WorkingFormationPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/services" element={<ServicesPage />} />
