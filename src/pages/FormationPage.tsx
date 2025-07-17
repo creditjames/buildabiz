@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
-import { loadStripe } from '@stripe/stripe-js';
 import BusinessNameForm from '../components/formation/BusinessNameForm';
 import BusinessAddressForm from '../components/formation/BusinessAddressForm';
 import RegisteredAgentForm from '../components/formation/RegisteredAgentForm';
@@ -10,13 +9,6 @@ import BusinessPurposeForm from '../components/formation/BusinessPurposeForm';
 import PackageSelection from '../components/formation/PackageSelection';
 import ReviewOrder from '../components/formation/ReviewOrder';
 import { supabase } from '../lib/supabase';
-
-// Validate Stripe key before initialization
-const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
-if (!STRIPE_KEY) {
-  console.error('Stripe publishable key is missing. Please check your environment variables.');
-}
-const stripePromise = STRIPE_KEY ? loadStripe(STRIPE_KEY) : null;
 
 const steps = [
   { id: 'business-name', label: 'Business Name' },
@@ -93,10 +85,6 @@ const FormationPage = () => {
     setError(null);
     
     try {
-      if (!stripePromise) {
-        throw new Error('Stripe is not properly configured. Please contact support.');
-      }
-
       // Create new user with email and password
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: formData.email,
@@ -134,37 +122,8 @@ const FormationPage = () => {
 
       if (businessError) throw businessError;
 
-      // Create Stripe checkout session using the user's access token
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/create-checkout`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${authData.session.access_token}`,
-        },
-        body: JSON.stringify({
-          businessId: businessData.id,
-          packageType: formData.selectedPackage,
-          state: formData.state,
-        }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to create checkout session');
-      }
-
-      const { sessionId, error: stripeError } = await response.json();
-      if (stripeError) throw new Error(stripeError);
-
-      // Get Stripe instance
-      const stripe = await stripePromise;
-      if (!stripe) throw new Error('Stripe failed to load');
-
-      const { error: redirectError } = await stripe.redirectToCheckout({
-        sessionId,
-      });
-
-      if (redirectError) throw redirectError;
+      // Instead of Stripe checkout, show a placeholder
+      alert('Your business profile has been created! Paddle payment integration coming soon.');
 
     } catch (error) {
       console.error('Error submitting form:', error);
