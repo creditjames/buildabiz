@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { useFormation } from '../../context/FormationContext';
-import { createCheckoutSession } from '../../stripe-config';
 
 interface ReviewOrderProps {
   formData: any;
@@ -74,7 +73,7 @@ const ReviewOrder: React.FC<ReviewOrderProps> = ({ formData, updateFormData, onS
       await onSubmit();
 
       // Create and redirect to Stripe checkout
-      await createCheckoutSession('price_1RMAf1PPLOAT0Jwpj6dyfdgn', 'payment');
+      // <div className="text-center text-orange-600 font-semibold">Paddle payment integration coming soon.</div>
     } catch (err) {
       console.error('Error during submission:', err);
       navigate('/payment/failed');
