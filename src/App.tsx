@@ -78,10 +78,14 @@ function App() {
               <Route path="/payment-processing" element={<PaymentProcessing />} />
               <Route path="/payment-success" element={<PaymentSuccess />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/policies/privacy" element={<PrivacyPolicy />} />
               <Route path="/profile-settings" element={<ProfileSettings />} />
               <Route path="/refund-policy" element={<RefundPolicy />} />
+              <Route path="/policies/refund" element={<RefundPolicy />} />
               <Route path="/reviews" element={<Reviews />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/policies/terms" element={<TermsOfService />} />
+              <Route path="/test-terms" element={<div className="p-8"><h1>Test Terms Page</h1><p>This is a test to see if routing works.</p></div>} />
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
               <Route path="/billing" element={<BillingPage />} />
               {/* Service pages */}
