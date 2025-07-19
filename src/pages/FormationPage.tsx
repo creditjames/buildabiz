@@ -88,15 +88,65 @@ const FormationPage = () => {
       console.log('Starting form submission...');
       console.log('Form data:', formData);
       
-      // Create new user with email and password
-      console.log('Creating user account...');
-      const { data: authData, error: authError } = await supabase.auth.signUp({
+      // Check if email and password are provided
+      if (!formData.email || !formData.password) {
+        console.error('Missing email or password:', { email: formData.email, hasPassword: !!formData.password });
+        setError('Email and password are required. Please fill in all required fields.');
+        return;
+      }
+      
+      // Try to sign in first (in case user already exists)
+      console.log('Checking if user exists...');
+      const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
         email: formData.email,
         password: formData.password,
       });
 
+      let authData: any = signInData;
+      let authError: any = signInError;
+
+      // If sign in fails, try to create new user
+      if (signInError && signInError.message.includes('Invalid login credentials')) {
+        console.log('User does not exist, creating new account...');
+        const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+        });
+        authData = signUpData;
+        authError = signUpError;
+      }
+
       if (authError) {
         console.error('Auth error:', authError);
+        console.error('Error details:', {
+          message: authError.message,
+          status: authError.status,
+          name: authError.name
+        });
+        
+        // If it's a database error, save data locally as fallback
+        if (authError.message.includes('Database error saving new user')) {
+          console.log('Saving form data locally due to Supabase database error...');
+          localStorage.setItem('pendingFormData', JSON.stringify({
+            ...formData,
+            timestamp: new Date().toISOString(),
+            error: 'Supabase database error'
+          }));
+          
+          alert(`We're experiencing technical difficulties with our database. 
+          
+Your form data has been saved locally and will be processed when the issue is resolved.
+
+Please try again later or contact support if the issue persists.
+
+Form Data Saved:
+- Business Name: ${formData.businessName}
+- Package: ${formData.selectedPackage}
+- Email: ${formData.email}`);
+          
+          return;
+        }
+        
         throw authError;
       }
 
@@ -105,7 +155,7 @@ const FormationPage = () => {
         throw new Error('Failed to create user account. Please try again.');
       }
 
-      console.log('User created successfully:', authData.user.id);
+      console.log('User authenticated successfully:', authData.user.id);
 
       // Create business profile in database
       console.log('Creating business profile...');

@@ -41,22 +41,21 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-gray-900 mb-4">Services</h4>
             <ul className="space-y-3">
-              <li><Link to="/formation/llc" className="text-gray-600 hover:text-orange-500">Form an LLC</Link></li>
-              <li><Link to="/formation/corporation" className="text-gray-600 hover:text-orange-500">Form a Corporation</Link></li>
+              <li><Link to="/formation" className="text-gray-600 hover:text-orange-500">Form an LLC</Link></li>
+              <li><Link to="/formation" className="text-gray-600 hover:text-orange-500">Form a Corporation</Link></li>
               <li><Link to="/services/registered-agent" className="text-gray-600 hover:text-orange-500">Registered Agent</Link></li>
-              <li><Link to="/services/annual-report" className="text-gray-600 hover:text-orange-500">Annual Reports</Link></li>
-              <li><Link to="/services/ein" className="text-gray-600 hover:text-orange-500">Get an EIN</Link></li>
+              <li><Link to="/services/annual-report-filing" className="text-gray-600 hover:text-orange-500">Annual Reports</Link></li>
+              <li><Link to="/services/ein-service" className="text-gray-600 hover:text-orange-500">Get an EIN</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-bold text-gray-900 mb-4">Support</h4>
             <ul className="space-y-3">
-              <li><Link to="/resources/faq" className="text-gray-600 hover:text-orange-500">FAQs</Link></li>
-              <li><Link to="/resources/guides" className="text-gray-600 hover:text-orange-500">Business Guides</Link></li>
-              <li><Link to="/resources/blog" className="text-gray-600 hover:text-orange-500">Blog</Link></li>
-              <li><Link to="/contact" className="text-gray-600 hover:text-orange-500">Help Center</Link></li>
-              <li><Link to="/policies/refund" className="text-gray-600 hover:text-orange-500">Refund Policy</Link></li>
+              <li><Link to="/faq" className="text-gray-600 hover:text-orange-500">FAQs</Link></li>
+              <li><Link to="/business-guides" className="text-gray-600 hover:text-orange-500">Business Guides</Link></li>
+              <li><Link to="/blog" className="text-gray-600 hover:text-orange-500">Blog</Link></li>
+              <li><Link to="/help-center" className="text-gray-600 hover:text-orange-500">Help Center</Link></li>
             </ul>
           </div>
         </div>
@@ -67,10 +66,9 @@ const Footer = () => {
               © {new Date().getFullYear()} Build-A-Biz Inc. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center space-x-6">
-              <Link to="/policies/privacy" className="text-gray-500 hover:text-orange-500 text-sm">Privacy Policy</Link>
-              <Link to="/policies/terms" className="text-gray-500 hover:text-orange-500 text-sm">Terms of Service</Link>
-              <Link to="/policies/accessibility" className="text-gray-500 hover:text-orange-500 text-sm">Accessibility</Link>
-              <Link to="/sitemap" className="text-gray-500 hover:text-orange-500 text-sm">Sitemap</Link>
+              <Link to="/privacy-policy" className="text-gray-500 hover:text-orange-500 text-sm">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="text-gray-500 hover:text-orange-500 text-sm">Terms of Service</Link>
+              <Link to="/refund-policy" className="text-gray-500 hover:text-orange-500 text-sm">Refund Policy</Link>
             </div>
           </div>
         </div>
