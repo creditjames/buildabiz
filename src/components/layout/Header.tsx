@@ -193,6 +193,14 @@ const Header = () => {
         </div>
       </div>
       
+    {/* Background overlay when mega menu is open */}
+    {isServicesMenuOpen && (
+      <div
+        className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm"
+        onClick={() => setIsServicesMenuOpen(false)}
+      />
+    )}
+
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-black/30 backdrop-blur-md shadow-xl border-t border-white/30">

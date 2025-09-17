@@ -71,6 +71,7 @@ function App() {
               <Route path="/documents" element={<DocumentsPage />} />
               <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
               <Route path="/entity-comparison" element={<EntityComparison />} />
+              <Route path="/compare-entities" element={<EntityComparison />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/help-center" element={<HelpCenter />} />
               <Route path="/partners" element={<Partners />} />
