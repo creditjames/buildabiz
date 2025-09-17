@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LogIn, Mail, Lock, AlertCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import logo from '../assets/logo.png';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -37,6 +38,9 @@ const LoginPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
+          <div className="flex justify-center mb-6">
+            <img src={logo} alt="Build-A-Biz Logo" className="h-24 w-auto" />
+          </div>
           <h2 className="mt-6 text-4xl font-extrabold text-gray-900 animate-fade-in">
             Welcome Back
           </h2>
